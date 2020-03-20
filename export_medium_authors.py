@@ -57,7 +57,7 @@ def get_all_authors_from_org(url):
 
         author_details = writer.find('a', class_='link--primary')
         author_name = author_details.text
-        author_medium_url = author_details.attrs['href']
+        author_medium_url, _ = author_details.attrs['href'].split('?')
 
         if not author_name:
             continue
