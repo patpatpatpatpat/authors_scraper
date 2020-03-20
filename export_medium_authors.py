@@ -22,15 +22,14 @@ def begin_scraping(url):
         authors = get_all_authors_from_org(url)
 
         data_frame = pd.DataFrame(authors)
-        filename = 'Authors for {url} - {datetime}.xls'.format(
-            url=url,
+        filename = 'Authors for MEDIUM ORG - {datetime}.xls'.format(
             datetime=datetime.now().strftime('%c'),
         )
         data_frame.to_excel(
             filename,
             columns=XLS_COLUMNS,
         )
-        print('XLS file created: {filename}')
+        print('XLS file created: %s' % filename)
         return
 
     print('URL not supported for now.')
@@ -67,10 +66,11 @@ def get_all_authors_from_org(url):
         data['medium_url'] = author_medium_url
 
         contact_details = get_contact_details_from_medium_user(author_medium_url)
-        time.sleep(5)
+        time.sleep(2)
 
         data['twitter'] = contact_details.get('twitter')
         data['linkedin'] = contact_details.get('linkedin')
+        data['email'] = contact_details.get('email')
 
         writers_data.append(data)
 
