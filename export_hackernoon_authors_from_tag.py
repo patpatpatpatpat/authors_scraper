@@ -118,6 +118,7 @@ if __name__ == '__main__':
                 continue
             import pdb; pdb.set_trace()
 
+    try:
         export_authors_as_xls(authors_data, arguments.tag)
     except Exception as e:
         print('xls export failed')
