@@ -13,6 +13,9 @@ ipdb = "*"
 flake8 = "*"
 isort = "*"
 pandas = "*"
+selenium = "*"
+tqdm = "*"
+xlwt = "*"
 
 [requires]
 python_version = "3.7"
